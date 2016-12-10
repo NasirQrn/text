@@ -1,0 +1,22 @@
+<html>
+<meta charset="utf-8" />
+<style >
+    .ppp{
+        width:600px;
+        height:300px;
+        background-color:pink;
+    }
+</style>
+<input type="text" id="ttt" name="" value="" maxlength="" placeholder="" /> <br /><br /><br />
+
+<div class="ppp"></div><!-- -->
+
+<script src="js/jquery.min.js"></script>
+<script>
+    $("document").ready(function(){
+        $("#ttt").keyup(
+                function(){$(".ppp:first").html(this.value)}
+        )
+    });
+</script>
+</html>

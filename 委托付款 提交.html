@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>工作台</title>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/app0628.css"/>
+    <script src="js/mui.js"></script>
+    <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--=============================集体复制到页面最前方================-->
+<!--复制到最上面-->
+<div id="pop_black" class="pop_black" style="display:none;"></div>
+<!--弹出层-->
+<div id="alert_div" class="alert_div" style="display: none">
+    <div class="alert_top">
+        委托付款
+    </div>
+    <div class="alert_body">
+        本次预约需付消费积分600积分，点 击“确定”系统将自动扣除，点击 “取消”系统将取消该委托！积分 不做扣除！
+    </div>
+    <div class="alert_select">
+        <div id="alert_ok" class="alert_ok">确认</div>
+        <div id="alert_cancel" class="alert_cancel">取消</div>
+    </div>
+</div>
+
+<!--弹出层 成功-->
+<div id="alert_success" class="alert_success" style="display: none">
+    <div class="alert_success_top">
+        <img src="images/img_alert_finish.png" alt="">
+    </div>
+    <div class="alert_success_p">
+        发布已完成！
+    </div>
+</div>
+
+<!--委托失败-->
+<div id="alert_div_noNum" class="alert_div_noNum" style="display: none">
+    <div class="noNum_top">
+        <img src="images/img_alert_failure.png" alt="">
+        <p class="noNum_top_p">委托失败</p>
+    </div>
+    <div class="noNum_body">
+        您的账户积分余额不足，请充值！
+    </div>
+    <div class="alert_select">
+        <div class="alert_go">去充值</div>
+        <div id="alert_cancel2" class="alert_cancel">取消</div>
+    </div>
+</div>
+<!--按钮-->
+<div id="btn_apply">
+    aaa
+</div>
+<!--=========================end==========================-->
+<script>
+    $(document).ready(function () {
+        $("#btn_apply").click(function () {
+            $("#pop_black").show();
+            $("#alert_div").show();
+            $("#alert_success").hide();
+            $("#alert_div_noNum").hide();
+
+        });
+        $("#alert_cancel").click(function () {
+            $("#pop_black").hide();
+            $("#alert_div").hide();
+            $("#alert_success").hide();
+            $("#alert_div_noNum").hide();
+
+        });
+        $("#alert_cancel2").click(function () {
+            $("#pop_black").hide();
+            $("#alert_div").hide();
+            $("#alert_success").hide();
+            $("#alert_div_noNum").hide();
+
+        });
+//      todo  第一种状态 点击"确定" 返回预约完成
+        $("#alert_ok").click(function () {
+            $("#alert_success").show();
+            $("#alert_div").hide();
+        });
+//      todo  欠费状态
+        $("#alert_ok").click(function () {
+            $("#alert_div_noNum").show();
+            $("#alert_div").hide();
+        });
+
+    $("#pop_black").click(function () {
+        $("#pop_black").hide();
+        $("#alert_div").hide();
+        $("#alert_success").hide();
+        $("#alert_div_noNum").hide();
+
+    });
+
+    });
+
+
+</script>
+</body>
+</html>
